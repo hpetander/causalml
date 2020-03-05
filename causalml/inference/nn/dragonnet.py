@@ -145,13 +145,13 @@ class DragonNet(object):
                               min_delta=0., cooldown=0, min_lr=0)
         ]
 
-        sgd_lr = 1e-5
+        sgd_lr = 1e-4
         momentum = 0.9
         self.dragonnet.compile(optimizer=SGD(lr=sgd_lr, momentum=momentum, nesterov=True), loss=loss, metrics=metrics)
         self.dragonnet.fit(X, y,
                            callbacks=sgd_callbacks,
                            validation_split=self.val_split,
-                           epochs=300,
+                           epochs=self.epochs,
                            batch_size=self.batch_size,
                            verbose=self.verbose)
 
