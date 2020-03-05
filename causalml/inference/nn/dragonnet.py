@@ -137,7 +137,7 @@ class DragonNet(object):
                            epochs=self.epochs,
                            batch_size=self.batch_size,
                            verbose=self.verbose)
-
+        return
         sgd_callbacks = [
             TerminateOnNaN(),
             EarlyStopping(monitor='val_loss', patience=40, min_delta=0.),
